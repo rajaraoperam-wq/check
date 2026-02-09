@@ -5,6 +5,22 @@
   border-radius: 20px;
   margin-bottom: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.photo-label {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #d6336c;
+  font-weight: 600;
+  margin-top: -12px;
+  margin-bottom: 20px;
+}
+
+.photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
@@ -59,6 +75,99 @@
   font-size: 1rem;
 }
 
+/* Floating hearts animation */
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(50px);
+  }
+}
+
+.hearts-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.7;
+  animation: float 8s linear infinite;
+}
+
+.heart:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 8s;
+}
+
+.heart:nth-child(2) {
+  left: 20%;
+  animation-delay: 1s;
+  animation-duration: 9s;
+}
+
+.heart:nth-child(3) {
+  left: 30%;
+  animation-delay: 2s;
+  animation-duration: 10s;
+}
+
+.heart:nth-child(4) {
+  left: 40%;
+  animation-delay: 1.5s;
+  animation-duration: 8.5s;
+}
+
+.heart:nth-child(5) {
+  left: 50%;
+  animation-delay: 0.5s;
+  animation-duration: 9.5s;
+}
+
+.heart:nth-child(6) {
+  left: 60%;
+  animation-delay: 2.5s;
+  animation-duration: 8s;
+}
+
+.heart:nth-child(7) {
+  left: 70%;
+  animation-delay: 1s;
+  animation-duration: 10s;
+}
+
+.heart:nth-child(8) {
+  left: 80%;
+  animation-delay: 2s;
+  animation-duration: 9s;
+}
+
+.heart:nth-child(9) {
+  left: 90%;
+  animation-delay: 0s;
+  animation-duration: 10.5s;
+}
+
 .card-content {
   margin-left: 0;
 }
@@ -66,6 +175,13 @@
 .message {
   font-size: 1.05rem;
   margin: 16px 0 20px;
+}
+
+.since {
+  font-size: 1rem;
+  color: #b03a5b;
+  font-weight: 600;
+  margin: 8px 0 10px;
 }
 
 .controls {
@@ -127,13 +243,51 @@
   margin-top: 10px;
 }
 
+.magic-message {
+  background: linear-gradient(135deg, #ffe6f0 0%, #fff0fb 100%);
+  border: 2px solid #ff77aa;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 14px;
+  text-align: center;
+  animation: magicPop 0.4s ease-out;
+}
+
+@keyframes magicPop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.magic-message p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #d6336c;
+  font-weight: 600;
+}
+
+.magic-signature {
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
 /* Responsive two-column layout on wide screens */
 @media (min-width: 900px) {
   .card {
     display: flex;
     gap: 32px;
-    align-items: center;
+    align-items: flex-start;
     padding: 36px;
+  }
+
+  .photo-container {
+    flex: 0 0 auto;
   }
 
   .photo {
@@ -141,7 +295,11 @@
     height: 260px;
     border-radius: 18px;
     margin: 0;
-    flex: 0 0 260px;
+  }
+
+  .photo-label {
+    margin-top: -8px;
+    margin-bottom: 0;
   }
 
   .card-content {
@@ -168,4 +326,61 @@
   .card {
     padding: 20px;
   }
+}
+
+/* Heart explosion animation */
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+.exploding-heart {
+  position: absolute;
+  font-size: 1.5rem;
+  pointer-events: none;
+  left: 50%;
+  top: 50%;
+  margin-left: -0.75rem;
+  margin-top: -0.75rem;
+  animation: explode 1.5s ease-out forwards;
+  animation-delay: var(--delay);
+  z-index: 9999;
+  transform-origin: center center;
+}
+
+/* Install popup */
+.install-popup {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.install-card {
+  pointer-events: auto;
+  background: white;
+  padding: 18px 22px;
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.install-card h3 {
+  margin: 0 0 6px 0;
+}
+
+.install-card p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem
 }

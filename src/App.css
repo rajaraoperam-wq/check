@@ -3,7 +3,7 @@
   height: 200px;
   object-fit: cover;
   border-radius: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   position: relative;
 }
@@ -270,6 +270,12 @@
   font-size: 1rem;
   color: #d6336c;
   font-weight: 600;
+}
+
+.magic-message li {
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .magic-signature {

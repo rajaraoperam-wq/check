@@ -209,17 +209,13 @@ export default function App() {
 
           <div className="card-content">
 
-            <h1>HI Manasa</h1>
+            <h1>Hi Manasa</h1>
 
             <p className="since">{daysSince} days since I first saw you, Manasa. And I’d still choose you every single day.</p>
 
             <p className="message">{messages[index]}</p>
 
             <div className="controls">
-              <button className="btn" onClick={nextMessage}>
-                Show Me Love 💌
-              </button>
-
               <button className="btn" onClick={togglePhoto}>
                 Next Photo ➜
               </button>
@@ -282,12 +278,22 @@ export default function App() {
                 </div>
               </div>
             ) : (
-              <p className="celebrate">She said <strong>Yes</strong>! 💖</p>
+              <div className="celebrate">
+                <h2 style={{ marginBottom: "12px" }}>Congratulations 🎉</h2>
+                <p style={{ marginBottom: "8px" }}>You unlocked:</p>
+                <h3 style={{ color: "#ff6b9d", marginBottom: "16px" }}>Premium Husband Package — Lifetime Edition 😎❤️</h3>
+              </div>
             )}
 
             {showMagicMessage && (
               <div className="magic-message">
-                <p>Hi ra Pandhi baby 🐷</p>
+                <h3 style={{ marginBottom: "16px", color: "#ff6b9d" }}>Premium Husband Promise 😎❤️</h3>
+                <ul style={{ textAlign: "left", marginBottom: "16px", paddingLeft: "20px", lineHeight: "1.8" }}>
+                  <li>✔ Will Still Love You When You Eat My Dessert 🍰</li>
+                  <li>✔ Will Still Love You When You Take 2 Hours To Get Ready ✨</li>
+                  <li>✔ Will Still Love You When You Steal The Blanket At Night 😄</li>
+                  <li>✔ Will Still Love You When We Are Old<br />   And Forget Where We Kept Our Glasses ❤️</li>
+                </ul>
                 <button
                   className="btn"
                   onClick={() => setShowMagicMessage(false)}
